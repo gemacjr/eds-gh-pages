@@ -5,3 +5,5 @@ vendor/
 Gemfile.lock
 .remember/
 .DS_Store
+node_modules/
+assets/site.css

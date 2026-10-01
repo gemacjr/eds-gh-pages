@@ -6,11 +6,10 @@
   const tool = document.getElementById("tool");
   const status = document.getElementById("status");
   const chips = Array.from(document.querySelectorAll(".chip"));
-  const groups = Array.from(document.querySelectorAll(".group"));
+  const groups = Array.from(document.querySelectorAll("[data-group]"));
   const rows = Array.from(document.querySelectorAll(".row"));
   const empty = document.getElementById("empty");
-  const timeline = document.querySelector(".timeline");
-  let category = "";
+    let category = "";
 
   // Decide whether a row should be visible.
   //   card.dataset.title / .summary / .tags  -> lowercased strings (tags space-separated)
@@ -48,24 +47,24 @@
 
     const cols = Array.from({ length: days }, () => {
       const col = document.createElement("div");
-      col.className = "day";
+      col.className = "flex h-full flex-col-reverse gap-px";
       col.setAttribute("role", "presentation");
       grid.appendChild(col);
       return col;
     });
 
     const peek = document.createElement("p");
-    peek.className = "peek";
+    peek.className = "mt-2 min-h-5 text-sm font-medium text-zinc-700 dark:text-zinc-300";
     peek.setAttribute("aria-live", "polite");
-    timeline.appendChild(peek);
+    months.after(peek);
 
     // Oldest first, so each day's stack builds upward in order.
     for (const r of dated.slice().sort((a, b) => t(a) - t(b))) {
       const a = document.createElement("a");
-      a.className = "block";
+      a.className = "block h-(--bh) rounded-[2px] bg-(--cat) transition-opacity hover:outline-2 hover:outline-offset-1 hover:outline-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-zinc-900 dark:hover:outline-white dark:focus-visible:outline-white";
       a.href = r.dataset.url;
       a.setAttribute("role", "listitem");
-      a.style.setProperty("--cat", `var(--c-${r.dataset.category})`);
+      a.style.setProperty("--cat", `var(--color-cat-${r.dataset.category})`);
       const label = `${r.dataset.name}, ${new Date(t(r)).toLocaleDateString(undefined, { month: "short", day: "numeric", timeZone: "UTC" })}`;
       a.setAttribute("aria-label", label);
       a.addEventListener("mouseenter", () => (peek.textContent = label));
@@ -90,7 +89,7 @@
       const next = i + 1 < starts.length ? starts[i + 1].c : days;
       if (next - s.c < 4) return; // too narrow to label
       const m = document.createElement("span");
-      m.className = "month";
+      m.className = "overflow-hidden border-l border-zinc-200 pl-1.5 text-xs/6 whitespace-nowrap text-zinc-500 dark:border-zinc-800";
       m.style.gridColumn = `${s.c + 1} / ${next + 1}`;
       m.style.gridRow = "1";
       m.textContent = s.d.toLocaleDateString(undefined, { month: "short", timeZone: "UTC" });
@@ -105,12 +104,12 @@
       const ok = (!category || row.dataset.category === category) &&
         matches(row, query, tool.value, status.value);
       row.hidden = !ok;
-      blocks.get(row)?.classList.toggle("on", ok);
       if (ok) shown++;
     }
+    // Dim the timeline blocks of hidden specs, but only while something is filtered out.
+    for (const [row, block] of blocks) block.classList.toggle("opacity-15", shown < rows.length && row.hidden);
     for (const g of groups) g.hidden = !g.querySelector(".row:not([hidden])");
     empty.hidden = shown > 0;
-    timeline.classList.toggle("filtering", shown < rows.length);
     for (const c of chips) c.setAttribute("aria-pressed", String(c.dataset.category === category));
 
     // Keep filters in the URL so a filtered view can be bookmarked or shared.

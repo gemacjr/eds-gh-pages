@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Jekyll templates and the script that builds the timeline. */
+@source "../_layouts";
+@source "../index.html";
+@source "../assets/filter.js";
+
+@theme static {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+
+  /* Category colours, referenced as var(--color-cat-<id>) from templates. */
+  --color-cat-system-design: oklch(0.55 0.2 264);
+  --color-cat-spring: oklch(0.58 0.16 140);
+  --color-cat-interview: oklch(0.55 0.19 330);
+  --color-cat-web: oklch(0.66 0.19 45);
+  --color-cat-ios: oklch(0.6 0.12 200);
+  --color-cat-tools: oklch(0.7 0.15 85);
+}
+
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-cat-system-design: oklch(0.7 0.16 264);
+      --color-cat-spring: oklch(0.76 0.16 140);
+      --color-cat-interview: oklch(0.72 0.16 330);
+      --color-cat-web: oklch(0.76 0.16 50);
+      --color-cat-ios: oklch(0.78 0.11 200);
+      --color-cat-tools: oklch(0.82 0.14 88);
+    }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  ::selection { background: color-mix(in oklch, var(--color-cat-system-design) 25%, transparent); }
+}
+
+@layer components {
+  /* Status is encoded by shape as well as label, so it reads without colour. */
+  .status-dot::before {
+    content: "";
+    width: 7px; height: 7px; border-radius: 9999px; flex: none;
+    border: 1.5px solid currentColor;
+  }
+  .status-shipped::before { background: currentColor; }
+  .status-in-progress::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+  .status-archived::before { border-radius: 1px; height: 2px; border-width: 0; background: currentColor; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}

@@ -16,4 +16,4 @@ defaults:
   - scope: { path: "", type: specs }
     values: { layout: spec }
 
-exclude: [README.md, CLAUDE.md, Gemfile, Gemfile.lock, .remember, vendor]
+exclude: [README.md, CLAUDE.md, Gemfile, Gemfile.lock, .remember, vendor, node_modules, package.json, package-lock.json, src]

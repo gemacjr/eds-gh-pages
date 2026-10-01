@@ -2,25 +2,35 @@
 layout: default
 ---
 {% assign cat = site.data.categories | where: "id", page.category | first %}
-<article class="spec" style="--cat: var(--c-{{ page.category }})">
-  <a class="back" href="{{ '/' | relative_url }}{% if page.category %}?category={{ page.category }}{% endif %}">All specs</a>
-  <header class="spec-head">
-    {% if cat %}<p class="spec-cat"><span class="swatch"></span>{{ cat.name }}</p>{% endif %}
-    <h1>{{ page.title }}</h1>
-    {% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}
+<article style="--cat: var(--color-cat-{{ page.category }})">
+  <a href="{{ '/' | relative_url }}{% if page.category %}?category={{ page.category }}{% endif %}" class="mt-4 inline-flex items-center gap-1.5 rounded-full py-1 pr-3 pl-2 text-sm text-zinc-600 ring-1 ring-zinc-950/10 transition hover:bg-white hover:text-zinc-900 dark:text-zinc-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white">
+    <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" class="size-3.5"><path fill-rule="evenodd" d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"/></svg>
+    All specs
+  </a>
+
+  <header class="max-w-4xl pt-8 sm:pt-12">
+    {% if cat %}<p class="inline-flex items-center gap-2 rounded-full bg-[color-mix(in_oklch,var(--cat)_12%,transparent)] px-3 py-1 text-sm font-medium text-zinc-700 dark:text-zinc-200"><span class="size-2 rounded-full bg-(--cat)"></span>{{ cat.name }}</p>{% endif %}
+    <h1 class="mt-5 font-display text-4xl font-extrabold tracking-[-0.035em] text-balance [font-variation-settings:'opsz'_96,'wdth'_82] sm:text-6xl">{{ page.title }}</h1>
+    {% if page.summary %}<p class="mt-5 max-w-2xl text-lg text-pretty text-zinc-600 sm:text-xl dark:text-zinc-400">{{ page.summary }}</p>{% endif %}
   </header>
-  <div class="spec-body">
-    <dl class="meta">
-      <div><dt>Status</dt><dd class="status-{{ page.status }}">{{ page.status | replace: "-", " " }}</dd></div>
-      <div><dt>Built with</dt><dd>{% for t in page.tools %}{% if t == "claude-code" %}Claude Code{% elsif t == "cursor" %}Cursor{% else %}{{ t }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</dd></div>
-      {% if page.date %}<div><dt>Started</dt><dd><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %-d, %Y" }}</time></dd></div>{% endif %}
-      {% if page.updated %}<div><dt>Updated</dt><dd>{{ page.updated | date: "%b %-d, %Y" }}</dd></div>{% endif %}
-      {% if page.repo %}<div><dt>Repository</dt><dd><a href="{{ page.repo }}">{{ page.repo | remove: "https://github.com/" }}</a></dd></div>{% endif %}
-      {% if page.source %}<div><dt>Based on</dt><dd><a href="{{ page.source }}">{{ page.source | split: "/" | slice: 2 | join: "" | remove: "www." }}</a></dd></div>{% endif %}
-      {% if page.tags.size > 0 %}<div><dt>Tags</dt><dd class="tags">{% for t in page.tags %}<span>{{ t }}</span>{% endfor %}</dd></div>{% endif %}
-    </dl>
-    <div class="prose">
-      {{ content }}
+
+  <div class="mt-10 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-12">
+    <aside class="lg:sticky lg:top-6 lg:self-start">
+      <dl class="grid grid-cols-2 gap-x-6 gap-y-5 rounded-2xl bg-white p-5 text-sm shadow-sm ring-1 ring-zinc-950/5 sm:grid-cols-3 lg:grid-cols-1 dark:bg-zinc-900/60 dark:ring-white/10">
+        <div><dt class="text-zinc-500">Status</dt><dd class="mt-1.5"><span class="status-dot status-{{ page.status }} inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-2 py-0.5 text-xs font-medium capitalize dark:bg-white/5">{{ page.status | replace: "-", " " }}</span></dd></div>
+        <div><dt class="text-zinc-500">Built with</dt><dd class="mt-1 font-medium">{% for t in page.tools %}{% if t == "claude-code" %}Claude Code{% elsif t == "cursor" %}Cursor{% else %}{{ t }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</dd></div>
+        {% if page.date %}<div><dt class="text-zinc-500">Started</dt><dd class="mt-1 font-medium"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %-d, %Y" }}</time></dd></div>{% endif %}
+        {% if page.updated %}<div><dt class="text-zinc-500">Updated</dt><dd class="mt-1 font-medium">{{ page.updated | date: "%b %-d, %Y" }}</dd></div>{% endif %}
+        {% if page.repo %}<div class="col-span-2 sm:col-span-1"><dt class="text-zinc-500">Repository</dt><dd class="mt-1 font-medium break-all"><a class="underline decoration-zinc-300 underline-offset-4 hover:decoration-(--cat) dark:decoration-zinc-600" href="{{ page.repo }}">{{ page.repo | remove: "https://github.com/" }}</a></dd></div>{% endif %}
+        {% if page.source %}<div class="col-span-2 sm:col-span-1"><dt class="text-zinc-500">Based on</dt><dd class="mt-1 font-medium break-all"><a class="underline decoration-zinc-300 underline-offset-4 hover:decoration-(--cat) dark:decoration-zinc-600" href="{{ page.source }}">{{ page.source | split: "/" | slice: 2 | join: "" | remove: "www." }}</a></dd></div>{% endif %}
+        {% if page.tags.size > 0 %}<div class="col-span-2 sm:col-span-3 lg:col-span-1"><dt class="text-zinc-500">Tags</dt><dd class="mt-2 flex flex-wrap gap-1.5">{% for t in page.tags %}<span class="rounded-md bg-zinc-100 px-1.5 py-0.5 text-xs text-zinc-600 dark:bg-white/5 dark:text-zinc-400">{{ t }}</span>{% endfor %}</dd></div>{% endif %}
+      </dl>
+    </aside>
+
+    <div class="prose max-w-none prose-zinc lg:prose-lg dark:prose-invert prose-headings:font-display prose-headings:tracking-tight prose-h2:mt-12 prose-h2:border-b prose-h2:border-zinc-950/5 prose-h2:pb-2 dark:prose-h2:border-white/10 prose-a:decoration-(--cat) prose-a:underline-offset-4 prose-code:rounded-md prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-white/10 prose-pre:rounded-2xl prose-pre:bg-zinc-900 prose-pre:ring-1 prose-pre:ring-white/10 dark:prose-pre:bg-black/40 prose-li:marker:text-(--cat) prose-table:text-sm [&_.task-list-item]:list-none [&_.task-list-item-checkbox]:mr-2 [&_.task-list-item-checkbox]:accent-(--cat) [&_.task-list]:pl-0 [&_pre_code]:bg-transparent [&_pre_code]:p-0">
+      <div class="max-w-3xl">
+        {{ content }}
+      </div>
     </div>
   </div>
 </article>

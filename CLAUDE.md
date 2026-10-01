@@ -17,6 +17,14 @@ Don't put specs anywhere other than `_specs/`, or they won't show on the index.
 
 ## Preview locally
 
-`bundle install && bundle exec jekyll serve`, then open http://localhost:4000/eds-gh-pages/
+Styles are Tailwind v4, compiled from `src/tailwind.css` to `assets/site.css` (gitignored, built in CI).
+
+```bash
+npm install
+npm run watch:css          # in one terminal
+bundle exec jekyll serve   # in another, then open http://localhost:4000/eds-gh-pages/
+```
+
+Deploys go through `.github/workflows/pages.yml` on every push to `main`. Classes created in `assets/filter.js` are picked up because Tailwind scans that file.
 
 The site is public. Don't name employers or the companies behind interview-prep work, don't name or give ages for family members, and don't link private repos.
