@@ -29,6 +29,10 @@ Brickognize used as a labelling oracle.
 The `brickster-ml` pipeline CLI works end to end through rendering and dataset assembly (17 tests
 green). Training and checks on real photos are next.
 
+## Related
+
+- [BricksterRN](../brickster-rn/): a React Native take using zero-shot MobileCLIP instead of a classifier trained per set
+
 ## Changelog
 
 - 2026-06-10: App analysis and ML architecture brainstorm

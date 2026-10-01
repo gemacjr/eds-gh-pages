@@ -6,14 +6,14 @@
   name: Spring Boot and Java deep dives
   blurb: One article or concept per project, rebuilt as running code with tests.
 - id: interview
-  name: Interview prep
-  blurb: Portfolio pieces and study projects built for specific roles.
+  name: Interview prep and study
+  blurb: Portfolio pieces built for specific roles, and study projects for the topics they test.
 - id: web
   name: Websites and games
   blurb: Sites, browser games, and front-end experiments.
 - id: ios
-  name: iOS apps
-  blurb: Native SwiftUI apps.
+  name: Mobile apps
+  blurb: Native SwiftUI and React Native apps.
 - id: tools
   name: Tools and automation
   blurb: Small utilities that save me time.

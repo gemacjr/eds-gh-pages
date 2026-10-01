@@ -53,6 +53,10 @@ through a read-through cache.
 - Added the Next.js frontend as a second pass, asking for a modern UI built on a customized Tailwind base.
 - Finished with a README and a one-command local script.
 
+## Related
+
+- [TocketMaster](../tocketmaster/): the first take, split into four services
+
 ## Changelog
 
 - 2026-09-24: Built backend, frontend, Postman collection, and local scripts
