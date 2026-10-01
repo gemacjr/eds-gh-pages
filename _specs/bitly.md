@@ -5,6 +5,7 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, dynamodb, redis, localstack]
+repo: https://github.com/gemacjr/bitly-url-shortener
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/bitly
 date: 2026-09-24
 ---

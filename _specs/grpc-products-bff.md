@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, grpc, postgres, code-review]
+repo: https://github.com/gemacjr/grpc-products-bff
 date: 2026-09-23
 ---
 

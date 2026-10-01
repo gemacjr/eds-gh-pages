@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, troubleshooting, k6, grafana, toxiproxy]
+repo: https://github.com/gemacjr/api-failure-lab
 date: 2026-09-28
 ---
 

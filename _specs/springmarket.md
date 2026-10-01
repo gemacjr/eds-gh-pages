@@ -2,10 +2,12 @@
 title: SpringMarket
 summary: A marketplace modular monolith designed to teach the major Spring technologies inside one realistic domain instead of separate demos.
 category: spring
-status: draft
+status: in-progress
 tools: [claude-code]
 tags: [spring-boot, modular-monolith, kafka, rabbitmq, mongodb, redis, spring-batch, react]
+repo: https://github.com/gemacjr/springmarket
 date: 2026-09-26
+updated: 2026-10-01
 ---
 
 ## Problem
@@ -42,8 +44,9 @@ Spring Security uses JWT access tokens. Spring Batch runs the admin reports.
 
 ## Status
 
-The design spec and implementation plan are written (`docs/superpowers/`). Implementation hasn't started.
+The design spec and plan are on `main`. The implementation is on the `feature/springmarket` branch: SPA checkout, seller, and admin flows, with a Testcontainers checkout test and a checkout confirmation email.
 
 ## Changelog
 
 - 2026-09-26: Design spec and implementation plan
+- 2026-10-01: Pushed to GitHub, including the feature branch

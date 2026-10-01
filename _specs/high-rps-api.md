@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, performance, valkey, dynamodb, ecs, load-testing]
+repo: https://github.com/gemacjr/high-rps-api
 source: https://medium.com/javarevisited/can-spring-boot-really-handle-1-million-requests-per-second-db5a7bb25e9d
 date: 2026-09-28
 ---

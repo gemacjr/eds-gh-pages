@@ -5,6 +5,7 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [react, typescript, vite, learning]
+repo: https://github.com/gemacjr/react-crud-lab
 date: 2026-08-29
 ---
 

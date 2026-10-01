@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, grpc, postgres, flyway, docker]
+repo: https://github.com/gemacjr/grpc-product-api
 date: 2026-09-16
 ---
 

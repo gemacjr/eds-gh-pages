@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, grpc, webflux, postgres]
+repo: https://github.com/gemacjr/grpc-order-platform
 date: 2026-09-08
 ---
 

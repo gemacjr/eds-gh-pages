@@ -5,6 +5,7 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [angular, micro-frontends, native-federation, spring-boot, postgres]
+repo: https://github.com/gemacjr/harborpath-recordkeeping
 date: 2026-08-18
 ---
 

@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, design-patterns]
+repo: https://github.com/gemacjr/spring-factory-pattern-api
 source: https://ramakrishna-01.medium.com/factory-pattern-in-java-a-practical-guide-with-real-world-examples-3dcc91267dad
 date: 2026-09-28
 ---

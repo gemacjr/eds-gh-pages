@@ -5,6 +5,7 @@ category: spring
 status: in-progress
 tools: [claude-code]
 tags: [spring-boot, kafka, saga, localstack, aws]
+repo: https://github.com/gemacjr/saga-orchestration-kafka
 source: https://erkndmrl.medium.com/orchestration-based-saga-pattern-with-spring-boot-and-kafka-6a02f50a8d49
 date: 2026-10-01
 ---

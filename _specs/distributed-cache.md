@@ -5,7 +5,6 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, consistent-hashing, ecs, terraform]
-repo: https://github.com/gemacjr/distributedCache
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/distributed-cache
 date: 2026-09-26
 ---

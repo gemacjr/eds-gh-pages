@@ -5,6 +5,7 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, redis, localstack, aws, terraform]
+repo: https://github.com/gemacjr/frontrow-ticketmaster
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster
 date: 2026-09-24
 ---

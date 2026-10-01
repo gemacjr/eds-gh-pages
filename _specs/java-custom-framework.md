@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [java, reflection, dependency-injection, aop]
+repo: https://github.com/gemacjr/java-custom-di-aop-framework
 source: https://dev.to/saurabhkurve/building-a-custom-framework-in-java-from-dependency-injection-to-aop-3n2f
 date: 2026-09-28
 ---

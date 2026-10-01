@@ -5,6 +5,7 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, postgres, postgis, s3, terraform]
+repo: https://github.com/gemacjr/local-eats-yelp
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/yelp
 date: 2026-09-25
 ---

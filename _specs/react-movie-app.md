@@ -5,6 +5,7 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [react, hooks, vite, learning]
+repo: https://github.com/gemacjr/react-movie-app
 date: 2026-08-29
 ---
 

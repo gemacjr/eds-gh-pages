@@ -5,6 +5,7 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, kafka, microservices, maven]
+repo: https://github.com/gemacjr/kafka-ecommerce-microservices
 date: 2026-05-21
 ---
 

@@ -5,7 +5,6 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, postgres, valkey, ecs, terraform]
-repo: https://github.com/gemacjr/LocalDeliverySystem
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/gopuff
 date: 2026-09-26
 ---

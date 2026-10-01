@@ -5,6 +5,7 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [sql, postgres, docker, learning]
+repo: https://github.com/gemacjr/sql-top-50-postgres
 source: https://leetcode.com/studyplan/top-sql-50/
 date: 2026-08-16
 ---

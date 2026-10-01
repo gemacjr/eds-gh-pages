@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, design-patterns, gradle]
+repo: https://github.com/gemacjr/spring-boot-design-patterns
 date: 2026-09-08
 ---
 

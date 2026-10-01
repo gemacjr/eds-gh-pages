@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, elasticsearch, kibana, apm, docker]
+repo: https://github.com/gemacjr/spring-boot-elastic-observability
 source: https://www.infoworld.com/article/2258527/bring-elastic-observability-to-your-java-application.html
 date: 2026-09-28
 ---

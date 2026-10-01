@@ -5,7 +5,6 @@ category: tools
 status: shipped
 tools: [claude-code]
 tags: [nextjs, github-oauth, pocketbase]
-repo: https://github.com/gemacjr/github-explorer
 date: 2026-07-04
 ---
 

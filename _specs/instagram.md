@@ -5,6 +5,7 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, dynamodb, s3, sqs, redis, terraform]
+repo: https://github.com/gemacjr/printroom-instagram
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/instagram
 date: 2026-09-24
 ---

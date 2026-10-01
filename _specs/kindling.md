@@ -5,7 +5,6 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, postgis, redis, dynamodb, sns, sqs]
-repo: https://github.com/gemacjr/kindling
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/tinder
 date: 2026-09-26
 ---

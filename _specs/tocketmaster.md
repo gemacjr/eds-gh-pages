@@ -5,6 +5,7 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, react, redis, opensearch, nginx, terraform]
+repo: https://github.com/gemacjr/tocketmaster
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster
 date: 2026-08-24
 ---

@@ -5,6 +5,7 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [spring-security, oauth2, oidc, webauthn, tdd]
+repo: https://github.com/gemacjr/oauth2-oidc-auth-service
 date: 2026-09-29
 ---
 

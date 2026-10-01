@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [java, learning, exercises]
+repo: https://github.com/gemacjr/java-fundamentals-workbook
 source: https://www.infoworld.com/article/2173838/how-to-copy-objects-in-java-shallow-copy-and-deep-copy.html
 date: 2026-09-28
 ---

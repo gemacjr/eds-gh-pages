@@ -5,6 +5,7 @@ category: system-design
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, nextjs, redis, opensearch, dynamodb, terraform]
+repo: https://github.com/gemacjr/spark-tinder
 source: https://www.hellointerview.com/learn/system-design/problem-breakdowns/tinder
 date: 2026-09-26
 ---

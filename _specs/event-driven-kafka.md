@@ -5,6 +5,7 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, kafka, outbox, saga]
+repo: https://github.com/gemacjr/event-driven-commerce-kafka
 source: https://medium.com/@ayushagrawal290920/building-an-event-driven-system-with-kafka-and-spring-boot-6d1f5cd7cd09
 date: 2026-09-28
 ---

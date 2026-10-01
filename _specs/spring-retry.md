@@ -5,7 +5,6 @@ category: spring
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, resilience, async]
-repo: https://github.com/gemacjr/spring-retry
 source: https://www.baeldung.com/spring-async-retry
 date: 2026-09-28
 ---

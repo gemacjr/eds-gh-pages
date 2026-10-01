@@ -5,7 +5,6 @@ category: interview
 status: shipped
 tools: [claude-code]
 tags: [spring-boot, onnx, speechbrain, biometrics]
-repo: https://github.com/gemacjr/jp-voice-enroll
 date: 2026-09-29
 ---
 
