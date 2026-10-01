@@ -8,3 +8,5 @@ alwaysApply: false
 - Front matter `status` is one of: draft, in-progress, shipped, archived.
 - Front matter `tools` is a list containing claude-code and/or cursor.
 - Dates use YYYY-MM-DD. On edits, set `updated` and append to the Changelog section.
+- Front matter `category` is an id from `_data/categories.yml`.
+- The site is public: no employer names, family details, or private repo links.

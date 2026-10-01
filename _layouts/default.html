@@ -3,20 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.summary | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <span class="tagline">{{ site.description }}</span>
+    <a class="site-link" href="https://github.com/gemacjr/eds-gh-pages">Source on GitHub</a>
   </header>
   <main>
     {{ content }}
   </main>
   <footer class="site-footer">
-    {{ site.specs | size }} specs · built with Jekyll on GitHub Pages
+    <p>{{ site.specs | size }} specs. Built with Jekyll on GitHub Pages.</p>
   </footer>
 </body>
 </html>

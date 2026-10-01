@@ -1,43 +1,79 @@
 ---
 layout: default
 ---
-<section class="controls">
-  <input id="q" type="search" placeholder="Search specs…" aria-label="Search specs">
-  <select id="tool" aria-label="Filter by tool">
-    <option value="">All tools</option>
-    <option value="claude-code">Claude Code</option>
-    <option value="cursor">Cursor</option>
-  </select>
-  <select id="status" aria-label="Filter by status">
-    <option value="">All statuses</option>
-    <option value="draft">Draft</option>
-    <option value="in-progress">In progress</option>
-    <option value="shipped">Shipped</option>
-    <option value="archived">Archived</option>
-  </select>
+{% assign specs = site.specs | sort: "date" | reverse %}
+{% assign first = site.specs | sort: "date" | first %}
+<section class="intro">
+  <h1 class="title">Project specs</h1>
+  <p class="lede">The plans behind {{ specs.size }} things I've built with Claude Code and Cursor, from {{ first.date | date: "%B %Y" }} to now.</p>
 </section>
 
-{% assign specs = site.specs | sort: "date" | reverse %}
-<ul class="spec-list" id="specs">
-  {% for s in specs %}
-  <li class="card"
-      data-title="{{ s.title | downcase | escape }}"
-      data-summary="{{ s.summary | downcase | escape }}"
-      data-tags="{{ s.tags | join: ' ' | downcase }}"
-      data-tools="{{ s.tools | join: ' ' }}"
-      data-status="{{ s.status }}">
-    <a href="{{ s.url | relative_url }}">
-      <h2>{{ s.title }}</h2>
-      {% if s.summary %}<p>{{ s.summary }}</p>{% endif %}
-      <div class="card-meta">
-        <span class="badge status-{{ s.status }}">{{ s.status }}</span>
-        {% for t in s.tools %}<span class="badge tool">{{ t }}</span>{% endfor %}
-        {% if s.date %}<time>{{ s.date | date: "%b %-d, %Y" }}</time>{% endif %}
-      </div>
-    </a>
-  </li>
-  {% endfor %}
-</ul>
-<p id="empty" class="empty" hidden>No specs match.</p>
+<figure class="timeline" aria-labelledby="timeline-caption">
+  <div class="timeline-scroll">
+    <div class="timeline-grid" id="timeline" role="list"></div>
+    <div class="timeline-months" id="timeline-months" aria-hidden="true"></div>
+  </div>
+  <figcaption id="timeline-caption">Each block is one spec, placed on the day it started. Pick a category to highlight it.</figcaption>
+</figure>
+
+<section class="controls" aria-label="Filter specs">
+  <div class="chips" role="group" aria-label="Category">
+    <button type="button" class="chip" data-category="" aria-pressed="true">All <span class="n">{{ specs.size }}</span></button>
+    {% for c in site.data.categories %}
+    {% assign n = site.specs | where: "category", c.id | size %}
+    {% if n > 0 %}<button type="button" class="chip" data-category="{{ c.id }}" aria-pressed="false" style="--cat: var(--c-{{ c.id }})"><span class="swatch"></span>{{ c.name }} <span class="n">{{ n }}</span></button>{% endif %}
+    {% endfor %}
+  </div>
+  <div class="fields">
+    <input id="q" type="search" placeholder="Search titles, summaries, tags" aria-label="Search specs">
+    <select id="tool" aria-label="Filter by tool">
+      <option value="">Any tool</option>
+      <option value="claude-code">Claude Code</option>
+      <option value="cursor">Cursor</option>
+    </select>
+    <select id="status" aria-label="Filter by status">
+      <option value="">Any status</option>
+      <option value="draft">Draft</option>
+      <option value="in-progress">In progress</option>
+      <option value="shipped">Shipped</option>
+      <option value="archived">Archived</option>
+    </select>
+  </div>
+</section>
+
+{% for c in site.data.categories %}
+{% assign group = specs | where: "category", c.id %}
+{% if group.size > 0 %}
+<section class="group" data-group="{{ c.id }}" style="--cat: var(--c-{{ c.id }})">
+  <header class="group-head">
+    <h2>{{ c.name }}</h2>
+    <p>{{ c.blurb }}</p>
+  </header>
+  <ol class="rows">
+    {% for s in group %}
+    <li class="row"
+        data-title="{{ s.title | downcase | escape }}"
+        data-summary="{{ s.summary | downcase | escape }}"
+        data-tags="{{ s.tags | join: ' ' | downcase }}"
+        data-tools="{{ s.tools | join: ' ' }}"
+        data-status="{{ s.status }}"
+        data-category="{{ s.category }}"
+        data-date="{{ s.date | date: '%Y-%m-%d' }}"
+        data-url="{{ s.url | relative_url }}"
+        data-name="{{ s.title | escape }}">
+      <a href="{{ s.url | relative_url }}">
+        <span class="row-title">{{ s.title }}</span>
+        <span class="row-summary">{{ s.summary }}</span>
+        <span class="row-status status-{{ s.status }}">{{ s.status | replace: "-", " " }}</span>
+        <time class="row-date" datetime="{{ s.date | date: '%Y-%m-%d' }}">{{ s.date | date: "%b %-d" }}</time>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+{% endfor %}
+
+<p id="empty" class="empty" hidden>No specs match those filters. Clear the search or pick "All" to see everything.</p>
 
 <script src="{{ '/assets/filter.js' | relative_url }}"></script>

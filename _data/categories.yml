@@ -1,0 +1,19 @@
+# Order here is the order groups appear on the home page.
+- id: system-design
+  name: System design builds
+  blurb: Full-stack versions of Hello Interview breakdowns, local on LocalStack, deployable to AWS.
+- id: spring
+  name: Spring Boot and Java deep dives
+  blurb: One article or concept per project, rebuilt as running code with tests.
+- id: interview
+  name: Interview prep
+  blurb: Portfolio pieces and study projects built for specific roles.
+- id: web
+  name: Websites and games
+  blurb: Sites, browser games, and front-end experiments.
+- id: ios
+  name: iOS apps
+  blurb: Native SwiftUI apps.
+- id: tools
+  name: Tools and automation
+  blurb: Small utilities that save me time.

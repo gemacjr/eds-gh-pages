@@ -1,11 +1,13 @@
 ---
 title: Spec Library
 summary: A GitHub Pages site for storing the specifications behind projects built with Claude Code and Cursor.
+category: tools
 status: shipped
 tools: [claude-code]
 tags: [jekyll, github-pages, docs]
 repo: https://github.com/gemacjr/eds-gh-pages
 date: 2026-10-01
+updated: 2026-10-01
 ---
 
 ## Problem
@@ -42,3 +44,4 @@ what shipped, and which tool built it.
 ## Changelog
 
 - 2026-10-01: Spec created
+- 2026-10-01: Redesigned home page with a build timeline; added specs for every Claude Code project

@@ -1,10 +1,12 @@
 ---
 title: Project Name
 summary: One sentence on what this builds and for whom.
+category: tools          # system-design | spring | interview | web | ios | tools
 status: draft            # draft | in-progress | shipped | archived
 tools: [claude-code]     # any of: claude-code, cursor
 tags: []
 repo:                    # https://github.com/gemacjr/...
+source:                  # article or tutorial this is based on, if any
 date: YYYY-MM-DD
 updated:
 ---
