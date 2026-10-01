@@ -1,5 +1,5 @@
 ---
-title: Spec Library
+title: AI Build Specifications site
 summary: A GitHub Pages site for storing the specifications behind projects built with Claude Code and Cursor.
 category: tools
 status: shipped

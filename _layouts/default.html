@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="author" content="{{ site.author }}">
   <meta name="description" content="{{ page.summary | default: site.description }}">
   <meta name="color-scheme" content="light dark">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +23,8 @@
         <span class="size-2 rounded-[2px] bg-(--color-cat-web)"></span>
         <span class="size-2 rounded-[2px] bg-(--color-cat-interview)"></span>
       </span>
-      {{ site.title }}
+      <span>{{ site.author }}</span>
+      <span class="hidden font-normal text-zinc-400 sm:inline dark:text-zinc-500">/ {{ site.title }}</span>
     </a>
     <a href="https://github.com/gemacjr/eds-gh-pages" class="rounded-full px-3 py-1.5 text-sm text-zinc-600 ring-1 ring-zinc-950/10 transition hover:bg-white hover:text-zinc-900 dark:text-zinc-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white">Source on GitHub</a>
   </header>
@@ -32,7 +34,7 @@
   </main>
 
   <footer class="mx-auto mt-24 max-w-6xl border-t border-zinc-950/5 px-4 py-10 text-sm text-zinc-500 sm:px-6 lg:px-8 dark:border-white/10">
-    {{ site.specs | size }} specs. Built with Jekyll and Tailwind on GitHub Pages.
+    &copy; {{ site.time | date: '%Y' }} {{ site.author }}. {{ site.specs | size }} specs, built with Jekyll and Tailwind on GitHub Pages.
   </footer>
 </body>
 </html>

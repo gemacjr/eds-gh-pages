@@ -5,7 +5,8 @@ layout: default
 {% assign first = site.specs | sort: "date" | first %}
 {% assign shipped = site.specs | where: "status", "shipped" | size %}
 <section class="pt-10 sm:pt-16">
-  <h1 class="font-display text-5xl font-extrabold tracking-[-0.04em] [font-variation-settings:'opsz'_96,'wdth'_80] sm:text-7xl lg:text-8xl">Project specs</h1>
+  <h1 class="font-display text-4xl leading-[0.95] font-extrabold tracking-[0.01em] text-balance [font-variation-settings:'opsz'_96,'wdth'_92] sm:text-6xl lg:text-7xl">AI build specifications</h1>
+  <p class="mt-4 text-base font-medium text-zinc-500">By {{ site.author }}</p>
   <p class="mt-5 max-w-xl text-lg text-pretty text-zinc-600 sm:text-xl dark:text-zinc-400">
     The plans behind {{ specs.size }} things I've built with Claude Code and Cursor since {{ first.date | date: "%B %Y" }}. {{ shipped }} have shipped.
   </p>
