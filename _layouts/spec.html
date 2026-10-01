@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="spec">
+  <a class="back" href="{{ '/' | relative_url }}">← All specs</a>
+  <h1>{{ page.title }}</h1>
+  {% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}
+  <dl class="meta">
+    <div><dt>Status</dt><dd><span class="badge status-{{ page.status }}">{{ page.status }}</span></dd></div>
+    <div><dt>Built with</dt><dd>{% for t in page.tools %}<span class="badge tool">{{ t }}</span> {% endfor %}</dd></div>
+    {% if page.date %}<div><dt>Created</dt><dd>{{ page.date | date: "%b %-d, %Y" }}</dd></div>{% endif %}
+    {% if page.updated %}<div><dt>Updated</dt><dd>{{ page.updated | date: "%b %-d, %Y" }}</dd></div>{% endif %}
+    {% if page.repo %}<div><dt>Repo</dt><dd><a href="{{ page.repo }}">{{ page.repo | remove: "https://github.com/" }}</a></dd></div>{% endif %}
+    {% if page.tags.size > 0 %}<div><dt>Tags</dt><dd>{% for t in page.tags %}<span class="tag">#{{ t }}</span> {% endfor %}</dd></div>{% endif %}
+  </dl>
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

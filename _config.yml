@@ -1,0 +1,19 @@
+title: Project Specs
+description: Specifications for projects built with Claude Code and Cursor
+baseurl: "/eds-gh-pages"
+url: "https://gemacjr.github.io"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  specs:
+    output: true
+    permalink: /specs/:name/
+
+defaults:
+  - scope: { path: "", type: specs }
+    values: { layout: spec }
+
+exclude: [README.md, CLAUDE.md, Gemfile, Gemfile.lock, .remember, vendor]

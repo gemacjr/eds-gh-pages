@@ -1,0 +1,10 @@
+---
+description: Conventions for adding or editing project specs
+globs: _specs/**/*.md
+alwaysApply: false
+---
+
+- Specs live in `_specs/<kebab-case-name>.md`; start from `_templates/spec.md`.
+- Front matter `status` is one of: draft, in-progress, shipped, archived.
+- Front matter `tools` is a list containing claude-code and/or cursor.
+- Dates use YYYY-MM-DD. On edits, set `updated` and append to the Changelog section.

@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<section class="controls">
+  <input id="q" type="search" placeholder="Search specs…" aria-label="Search specs">
+  <select id="tool" aria-label="Filter by tool">
+    <option value="">All tools</option>
+    <option value="claude-code">Claude Code</option>
+    <option value="cursor">Cursor</option>
+  </select>
+  <select id="status" aria-label="Filter by status">
+    <option value="">All statuses</option>
+    <option value="draft">Draft</option>
+    <option value="in-progress">In progress</option>
+    <option value="shipped">Shipped</option>
+    <option value="archived">Archived</option>
+  </select>
+</section>
+
+{% assign specs = site.specs | sort: "date" | reverse %}
+<ul class="spec-list" id="specs">
+  {% for s in specs %}
+  <li class="card"
+      data-title="{{ s.title | downcase | escape }}"
+      data-summary="{{ s.summary | downcase | escape }}"
+      data-tags="{{ s.tags | join: ' ' | downcase }}"
+      data-tools="{{ s.tools | join: ' ' }}"
+      data-status="{{ s.status }}">
+    <a href="{{ s.url | relative_url }}">
+      <h2>{{ s.title }}</h2>
+      {% if s.summary %}<p>{{ s.summary }}</p>{% endif %}
+      <div class="card-meta">
+        <span class="badge status-{{ s.status }}">{{ s.status }}</span>
+        {% for t in s.tools %}<span class="badge tool">{{ t }}</span>{% endfor %}
+        {% if s.date %}<time>{{ s.date | date: "%b %-d, %Y" }}</time>{% endif %}
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+<p id="empty" class="empty" hidden>No specs match.</p>
+
+<script src="{{ '/assets/filter.js' | relative_url }}"></script>
